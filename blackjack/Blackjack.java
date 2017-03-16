@@ -1,7 +1,9 @@
 package blackjack;
 
+import java.util.ArrayList;
+
 public class Blackjack {
-  private int[] cards = new int[5];
+  private ArrayList<Integer> cards = new ArrayList<Integer>();
   private int next = 0;
   private int total = 0;
 
@@ -10,16 +12,18 @@ public class Blackjack {
   }
 
   public void deal() {
-    this.cards[this.next] = (int )(Math.random() * 10 + 1);
+    int card = (int)(Math.random() * 10 + 1);
 
-    this.next++;
+    cards.add(card);
+
+    next++;
   }
 
   public int total() {
     total = 0;
 
-    for (int i = 0; i < this.cards.length; i++) {
-      total+= this.cards[i];
+    for (int i = 0; i < cards.size(); i++) {
+      total+= cards.get(i);
     }
 
     return total;
